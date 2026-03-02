@@ -3,39 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fleudy Multiservices LLC</title>
+<title>FLEUDY MULTISERVICES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{
-  background:#f5f7fa;
-  color:#222;
-}
+body{background:#f4f6f9;color:#222;}
 
-header{
-  background:linear-gradient(135deg,#0d1b2a,#1b263b);
-  color:white;
-  padding:80px 20px;
+.hero{
+  background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  color:white;
+  background-blend-mode:overlay;
+  background-color:rgba(0,0,0,0.6);
 }
 
-header h1{
-  font-size:40px;
-  margin-bottom:15px;
-}
-
-header p{
-  font-size:18px;
-  opacity:0.9;
-}
+.hero h1{font-size:45px;}
+.hero p{margin-top:15px;font-size:20px;}
 
 .button{
   display:inline-block;
@@ -46,25 +36,12 @@ header p{
   text-decoration:none;
   border-radius:30px;
   font-weight:600;
-  transition:0.3s;
+  transition:.3s;
 }
+.button:hover{background:#0077b6;}
 
-.button:hover{
-  background:#0077b6;
-  transform:scale(1.05);
-}
-
-.section{
-  padding:60px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.section h2{
-  text-align:center;
-  margin-bottom:40px;
-  font-size:30px;
-}
+.section{padding:70px 20px;max-width:1200px;margin:auto;}
+.section h2{text-align:center;margin-bottom:40px;font-size:30px;}
 
 .services{
   display:grid;
@@ -76,34 +53,39 @@ header p{
   background:white;
   border-radius:15px;
   overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:0.4s;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.card img{width:100%;height:220px;object-fit:cover;}
+
+.card-content{padding:20px;}
+
+.gallery{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
 }
 
-.card img{
-  width:100%;
-  height:220px;
+.gallery img{
+  width:80px;
+  height:80px;
   object-fit:cover;
+  border-radius:8px;
 }
 
-.card-content{
-  padding:20px;
-}
-
-.card-content h3{
-  margin-bottom:10px;
+form input, form textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
 }
 
 footer{
   background:#0d1b2a;
   color:white;
   text-align:center;
-  padding:25px;
-  margin-top:40px;
+  padding:30px;
 }
 
 .whatsapp{
@@ -114,79 +96,117 @@ footer{
   color:white;
   padding:15px;
   border-radius:50%;
-  font-size:22px;
   text-decoration:none;
+  font-size:22px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Fleudy Multiservices LLC</h1>
-<p>Professional Tax & Home Services in San Diego</p>
-<a href="tel:+16199208096" class="button">Call Now</a>
-</header>
+<div class="hero">
+  <div>
+    <h1>FLEUDY MULTISERVICES</h1>
+    <p>Professional Tax & Home Services in San Diego</p>
+    <a href="#contact" class="button">Contact Us</a>
+  </div>
+</div>
 
 <div class="section">
 <h2>Our Services</h2>
 
 <div class="services">
 
+<!-- TAX -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" alt="Tax Service">
+<img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
 <div class="card-content">
 <h3>Tax Services</h3>
-<p>Professional individual and business tax preparation with accuracy and confidentiality.</p>
+<p>Individual & Business tax preparation.</p>
+<a href="tel:+16199208096" class="button">Call Now</a>
+<div class="gallery">
+<img src="https://via.placeholder.com/80">
+<img src="https://via.placeholder.com/80">
+</div>
 </div>
 </div>
 
+<!-- ELECTRICAL -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1581092160607-ee22731b6c6c" alt="Electrician">
+<img src="https://images.unsplash.com/photo-1581092160607-ee22731b6c6c">
 <div class="card-content">
 <h3>Electrical Services</h3>
-<p>Lights installation, outlets, switches and basic electrical services.</p>
+<p>Lights, outlets, panel installation.</p>
+<a href="tel:+16199208096" class="button">Call Now</a>
+<div class="gallery">
+<img src="https://via.placeholder.com/80">
+<img src="https://via.placeholder.com/80">
+</div>
 </div>
 </div>
 
+<!-- PLUMBING -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Plumber">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
 <div class="card-content">
 <h3>Plumbing Services</h3>
-<p>Toilet installation, faucet replacement and leak repairs.</p>
+<p>Toilet installation, leaks & repairs.</p>
+<a href="tel:+16199208096" class="button">Call Now</a>
+<div class="gallery">
+<img src="https://via.placeholder.com/80">
+<img src="https://via.placeholder.com/80">
+</div>
 </div>
 </div>
 
+<!-- CLEANING -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1581578731582-4c9f66a4df1d" alt="Cleaning">
+<img src="https://images.unsplash.com/photo-1581578731582-4c9f66a4df1d">
 <div class="card-content">
 <h3>Cleaning Services</h3>
-<p>Residential, deep cleaning and move-in/move-out services.</p>
+<p>Residential & deep cleaning.</p>
+<a href="tel:+16199208096" class="button">Book Now</a>
+<div class="gallery">
+<img src="https://via.placeholder.com/80">
+<img src="https://via.placeholder.com/80">
 </div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Handyman">
-<div class="card-content">
-<h3>Handyman Services</h3>
-<p>General home repairs and maintenance services.</p>
 </div>
 </div>
 
 </div>
 </div>
 
-<div class="section">
+<!-- CONTACT -->
+<div class="section" id="contact">
 <h2>Contact Us</h2>
-<p style="text-align:center;">
-Phone: (619) 920-8096 <br>
-Email: info@fleudymultiservices.com <br>
-425 E Bradley Ave, El Cajon, CA 92021
-</p>
+
+<form action="https://formsubmit.co/info@fleudymultiservices.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+<button class="button" type="submit">Send Message</button>
+</form>
+
+</div>
+
+<!-- REVIEWS -->
+<div class="section">
+<h2>Leave a Review</h2>
+
+<form action="https://formsubmit.co/info@fleudymultiservices.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<textarea name="review" rows="4" placeholder="Write your review..." required></textarea>
+<button class="button" type="submit">Submit Review</button>
+</form>
+
 </div>
 
 <footer>
-© 2026 Fleudy Multiservices LLC
+© 2026 FLEUDY MULTISERVICES  
+<br>
+Phone: (619) 920-8096  
+<br>
+425 E Bradley Ave, El Cajon, CA
 </footer>
 
 <a class="whatsapp" href="https://wa.me/16199208096">💬</a>

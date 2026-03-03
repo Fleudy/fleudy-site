@@ -1,1 +1,961 @@
 
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HC Services - Sèvis Pwofesyonèl</title>
+    <!-- Font Awesome pou icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Koulè bleu-vèt la */
+        :root {
+            --primary-color: #2E5E8B;  /* Kole bleu melange ak vèt */
+            --secondary-color: #4CAF50; /* Vèt */
+            --accent-color: #25D366;    /* Koulè WhatsApp */
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+        }
+
+        /* Header la */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .company-name h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .company-name p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .whatsapp-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background-color: #128C7E;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .language-selector select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .language-selector option {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .nav-container a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-container a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 94, 139, 0.9), rgba(76, 175, 80, 0.9)), url('https://via.placeholder.com/1920x600') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image {
+            height: 200px;
+            background: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .service-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .service-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: var(--light-bg);
+            padding: 50px 20px;
+        }
+
+        .upload-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .upload-area {
+            background: white;
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        .upload-area i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, var(--primary-color));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stars {
+            color: gold;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .reviewer img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        /* Team Section */
+        .team {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header la -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="company-name">
+                    <h1>HC Services</h1>
+                    <p>Sèvis Pwofesyonèl</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+509 1234 5678</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@hcservices.com</span>
+                </div>
+            </div>
+
+            <a href="#" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+
+            <div class="language-selector">
+                <select id="language">
+                    <option value="ht">Kreyòl</option>
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigasyon -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Akèy</a>
+            <a href="#services">Sèvis</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#reviews">Temwayaj</a>
+            <a href="#team">Ekip</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>HC Services - Sèvis ou ka fè konfyans</h1>
+        <p>Pwofesyonèl, Rapid, ak Kalite pou tout bezwen ou yo</p>
+        <a href="#services" style="background: white; color: var(--primary-color); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold;">Dekouvri Sèvis nou yo</a>
+    </section>
+
+    <!-- Seksyon Sèvis yo -->
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Sèvis nou ofri</h2>
+            <p>Chwazi sèvis ou bezwen an</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Netwayaj Lakay -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500" alt="Netwayaj">
+                </div>
+                <div class="service-content">
+                    <h3>Netwayaj Lakay</h3>
+                    <p>Netwayaj pwofesyonèl pou kay ou, byen fèt ak rapid</p>
+                    <button class="service-btn" onclick="openServiceModal('Netwayaj Lakay')">
+                        <i class="fas fa-upload"></i> Voye Foto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ede Ranpli Dokiman Immigration -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500" alt="Dokiman">
+                </div>
+                <div class="service-content">
+                    <h3>Dokiman Immigration</h3>
+                    <p>Ede w ranpli tout dokiman immigration yo</p>
+                    <button class="service-btn" onclick="openServiceModal('Dokiman Immigration')">
+                        <i class="fas fa-upload"></i> Voye Dokiman
+                    </button>
+                </div>
+            </div>
+
+            <!-- Traduction Dokiman -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=500" alt="Traduction">
+                </div>
+                <div class="service-content">
+                    <h3>Traduction Dokiman</h3>
+                    <p>Traduction pwofesyonèl nan plizyè lang</p>
+                    <button class="service-btn" onclick="openServiceModal('Traduction Dokiman')">
+                        <i class="fas fa-upload"></i> Voye Dokiman
+                    </button>
+                </div>
+            </div>
+
+            <!-- Maitenens -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=500" alt="Maitenens">
+                </div>
+                <div class="service-content">
+                    <h3>Maitenens Jeneral</h3>
+                    <p>Antretyen ak reparasyon pou kay ou</p>
+                    <button class="service-btn" onclick="openServiceModal('Maitenens')">
+                        <i class="fas fa-upload"></i> Voye Foto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Plonbi de Baz -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500" alt="Plonbi">
+                </div>
+                <div class="service-content">
+                    <h3>Plonbi de Baz</h3>
+                    <p>Reparasyon tiyo, robinè, ak lòt pwoblèm dlo</p>
+                    <button class="service-btn" onclick="openServiceModal('Plonbi')">
+                        <i class="fas fa-upload"></i> Voye Foto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Handyman (Elektrisite + Plonbi + Maitenens) -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500" alt="Handyman">
+                </div>
+                <div class="service-content">
+                    <h3>Handyman Sèvis Konplè</h3>
+                    <p>Elektrisite, Plonbi, Maitenens - Tout nan menm pakè</p>
+                    <button class="service-btn" onclick="openServiceModal('Handyman')">
+                        <i class="fas fa-upload"></i> Voye Foto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seksyon Upload Foto -->
+    <section class="upload-section">
+        <div class="upload-container">
+            <h2 style="color: var(--primary-color); font-size: 2rem;">Pibliye Foto Travay nou fè</h2>
+            <p>Voye foto dènye travay nou fè pou pibliye yo sou sit la</p>
+            
+            <div class="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Klike la a pou voye foto</h3>
+                <p>Ou ka voye plizyè foto an menm tan</p>
+                <input type="file" id="fileUpload" multiple accept="image/*" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('fileUpload').click()">
+                    <i class="fas fa-camera"></i> Chwazi Foto
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Travay -->
+    <section id="gallery" class="gallery">
+        <div class="section-title">
+            <h2>Dènye Travay nou fè</h2>
+            <p>Gade kèk egzanp travay nou yo</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Galeri pral ajoute isit ak JavaScript -->
+        </div>
+    </section>
+
+    <!-- Seksyon Revi 5 Etwal -->
+    <section id="reviews" class="reviews">
+        <div class="reviews-container">
+            <div class="section-title" style="color: white;">
+                <h2 style="color: white;">Kliyan nou yo pale</h2>
+                <p>Sa kliyan nou yo di sou sèvis nou yo</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Yo fè yon travay eksepsyonèl! Netwayaj la te pafè e ekip la pwofesyonèl anpil."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Reviewer">
+                        <div>
+                            <h4>Marie Claire</h4>
+                            <small>Pòtoprens</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Mwen te bezwen èd ak dokiman immigration, yo te rapid ak efikas. M rekòmande yo 100%."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Reviewer">
+                        <div>
+                            <h4>Jean Baptiste</h4>
+                            <small>Miyami</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Handyman yo te regle tout pwoblèm elektrisite mwen yo byen vit. Mwen kontan anpil!"</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Reviewer">
+                        <div>
+                            <h4>Sophia Pierre</h4>
+                            <small>Petyonvil</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seksyon Ekip CEO ak Manb -->
+    <section id="team" class="team">
+        <div class="section-title">
+            <h2>Ekip nou an</h2>
+            <p>Moun kap fè diferans lan</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="CEO">
+                </div>
+                <h3>Jean Claude</h3>
+                <p class="member-role">CEO & Fondatè</p>
+                <p>15 ane eksperyans nan domèn sèvis yo</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Manb">
+                </div>
+                <h3>Marie Lourdes</h3>
+                <p class="member-role">Direktris Operasyon</p>
+                <p>Ekspè nan jesyon pwojè</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Manb">
+                </div>
+                <h3>Pierre Michel</h3>
+                <p class="member-role">Head Handyman</p>
+                <p>Sètifye nan elektrisite ak plonbi</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Manb">
+                </div>
+                <h3>Josiane Paul</h3>
+                <p class="member-role">Kòdonatris Sèvis</p>
+                <p>Espesyalis nan relasyon kliyan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HC Services</h3>
+                <p>Sèvis pwofesyonèl ou ka fè konfyans. Nou la pou ede w 24/7.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Lyen rapid</h3>
+                <a href="#home">Akèy</a>
+                <a href="#services">Sèvis</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#reviews">Temwayaj</a>
+                <a href="#team">Ekip</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-phone"></i> +509 1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@hcservices.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Pòtoprens, Ayiti</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Èdtan travay</h3>
+                <p>Lendi - Vandredi: 8AM - 6PM</p>
+                <p>Samdi: 9AM - 2PM</p>
+                <p>Dimanch: Fèmen</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 HC Services. Tout dwa rezève.</p>
+        </div>
+    </footer>
+
+    <!-- Modal pou voye foto pou chak sèvis -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Voye Foto pou Sèvis la</h3>
+            <div style="text-align: center; padding: 20px;">
+                <i class="fas fa-upload" style="font-size: 50px; color: var(--primary-color);"></i>
+                <p style="margin: 20px 0;">Klike pou w chwazi foto pou reparasyon an</p>
+                <input type="file" id="serviceFile" multiple accept="image/*" style="display: none;">
+                <button class="service-btn" onclick="document.getElementById('serviceFile').click()" style="width: auto;">
+                    Chwazi Foto
+                </button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                    Nou pral kontakte w rapid pou reparasyon an
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonksyon pou ouvri modal chak sèvis
+        function openServiceModal(serviceName) {
+            document.getElementById('modalTitle').innerText = 'Voye Foto pou ' + serviceName;
+            document.getElementById('serviceModal').style.display = 'block';
+        }
+
+        // Fèmen modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('serviceModal')) {
+                document.getElementById('serviceModal').style.display = 'none';
+            }
+        }
+
+        // Fonksyon pou ajoute foto nan galeri
+        document.getElementById('fileUpload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            for(let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `
+                        <img src="${e.target.result}" alt="Travay">
+                        <div class="gallery-overlay">
+                            <h4>Nouvo travay</h4>
+                            <p>${new Date().toLocaleDateString()}</p>
+                        </div>
+                    `;
+                    galleryGrid.insertBefore(galleryItem, galleryGrid.firstChild);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+            
+            alert('Mèsi! Foto ou yo te ajoute nan galeri a.');
+        });
+
+        // Chanjman lang (similasyon)
+        document.getElementById('language').addEventListener('change', function(e) {
+            alert('Lang lan pral chanje an ' + e.target.options[e.target.selectedIndex].text + '. (Fonksyalite sa ap mande plis devlopman)');
+        });
+
+        // Smooth scrolling pou lyen yo
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Similasyon voye foto pou chak sèvis
+        document.getElementById('serviceFile').addEventListener('change', function(e) {
+            alert('Mèsi! Foto ou yo resevwa. N ap kontakte w rapidman.');
+            document.getElementById('serviceModal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

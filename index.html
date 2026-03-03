@@ -1,909 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEUDY MULTISERVICES - Professional Services in San Diego</title>
-    <!-- Font Awesome pou icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Koulè bleu-vèt la */
-        :root {
-            --primary-color: #2E5E8B;
-            --secondary-color: #4CAF50;
-            --accent-color: #25D366;
-            --light-bg: #f9f9f9;
-            --dark-text: #333;
-        }
-
-        /* Header la */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Se ou ki pral mete logo ou la */
-        .logo {
-            width: 100px;
-            height: 100px;
-            /* Mete logo ou isit */
-            background-image: url('chemen-pou-logo-ou.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .company-name h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            font-weight: 800;
-        }
-
-        .company-name p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .company-name p i {
-            margin-right: 5px;
-            color: var(--secondary-color);
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .contact-item i {
-            font-size: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .contact-item a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* WhatsApp bouton - byen vizib */
-        .whatsapp-btn {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid white;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-            background-color: #128C7E;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .whatsapp-btn i {
-            font-size: 1.3rem;
-        }
-
-        /* Language Selector */
-        .language-selector {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-
-        .language-selector select {
-            background: transparent;
-            border: none;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .language-selector option {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 1rem 0;
-            border-bottom: 3px solid var(--primary-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .nav-container a {
-            color: var(--dark-text);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .nav-container a:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Hero Section ak imaj San Diego */
-        .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(46, 94, 139, 0.8), rgba(76, 175, 80, 0.8));
-            z-index: -1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .hero .location {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .hero .location i {
-            color: var(--secondary-color);
-            margin-right: 10px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .hero-btn {
-            background: white;
-            color: var(--primary-color);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .hero-btn:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Services Section */
-        .services {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            color: var(--primary-color);
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: #666;
-            font-size: 1.2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-bottom: 4px solid var(--secondary-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(46, 94, 139, 0.2);
-        }
-
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-
-        .service-content {
-            padding: 20px;
-        }
-
-        .service-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .service-content p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .service-btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            font-size: 0.95rem;
-        }
-
-        .service-btn:hover {
-            background: var(--secondary-color);
-        }
-
-        .service-btn i {
-            margin-right: 8px;
-        }
-
-        /* AI Chatbot */
-        .ai-chatbot {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .chatbot-btn {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            border: 2px solid var(--secondary-color);
-        }
-
-        .chatbot-btn:hover {
-            transform: scale(1.1);
-            background: var(--secondary-color);
-        }
-
-        .chatbot-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 350px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
-            display: none;
-            overflow: hidden;
-        }
-
-        .chatbot-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-header h3 {
-            font-size: 1.1rem;
-        }
-
-        .close-chat {
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        .chatbot-messages {
-            height: 300px;
-            padding: 15px;
-            overflow-y: auto;
-            background: #f9f9f9;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-        }
-
-        .bot-message {
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 15px 15px 15px 0;
-            max-width: 80%;
-        }
-
-        .user-message {
-            background: var(--secondary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 15px 15px 0 15px;
-            max-width: 80%;
-            margin-left: auto;
-        }
-
-        .chatbot-input {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .chatbot-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .chatbot-input button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-left: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .logo-area {
-                justify-content: center;
-            }
-            
-            .contact-info {
-                justify-content: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            .whatsapp-btn {
-                margin: 10px auto;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header la -->
-    <header>
-        <div class="header-container">
-            <div class="logo-area">
-                <!-- Mete logo ou isit -->
-                <div class="logo"></div>
-                <div class="company-name">
-                    <h1>FLEUDY MULTISERVICES</h1>
-                    <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
-                </div>
-            </div>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+16199208096">+1 (619) 920-8096</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:infofleudymultiservices.com">info@fleudymultiservices.com</a>
-                </div>
-            </div>
-
-            <!-- WhatsApp bouton byen vizib -->
-            <a href="https://wa.me/16199208096" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                WhatsApp Us
-            </a>
-
-            <div class="language-selector">
-                <select id="language">
-                    <option value="en">English</option>
-                    <option value="ht">Kreyòl</option>
-                    <option value="fr">Français</option>
-                    <option value="es">Español</option>
-                    <option value="pt">Português</option>
-                </select>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigasyon -->
-    <nav>
-        <div class="nav-container">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section ak imaj San Diego -->
-    <section id="home" class="hero">
-        <img src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?w=1920" alt="San Diego" class="hero-image">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>FLEUDY MULTISERVICES</h1>
-            <h2>Your Trusted Partner in San Diego</h2>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i> Serving All San Diego County
-            </div>
-            <p>Professional, Fast, and Quality Services for Your Home and Business Needs</p>
-            <a href="#services" class="hero-btn">Explore Our Services</a>
-        </div>
-    </section>
-
-    <!-- AI Chatbot ki ka reponn sou sèvis yo -->
-    <div class="ai-chatbot">
-        <div class="chatbot-btn" onclick="toggleChatbot()">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="chatbot-window" id="chatbotWindow">
-            <div class="chatbot-header">
-                <h3><i class="fas fa-robot"></i> Fleudy AI Assistant</h3>
-                <span class="close-chat" onclick="toggleChatbot()">×</span>
-            </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message">
-                    <div class="bot-message">
-                        👋 Hi! I'm Fleudy's AI assistant. I can help you with information about our services:
-                        <br><br>
-                        • Home Cleaning<br>
-                        • Immigration Documents<br>
-                        • Document Translation<br>
-                        • General Maintenance<br>
-                        • Basic Plumbing<br>
-                        • Basic Electrical<br>
-                        • Tax Preparation<br>
-                        • Handyman Services
-                        <br><br>
-                        What would you like to know?
-                    </div>
-                </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="if(event.key === 'Enter') sendMessage()">
-                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Seksyon Sèvis yo -->
-    <section id="services" class="services">
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Choose the service you need and send photos for a free estimate</p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Home Cleaning -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500" alt="Home Cleaning">
-                </div>
-                <div class="service-content">
-                    <h3>Home Cleaning</h3>
-                    <p>Professional and detailed cleaning for your home. We use modern equipment and quality products.</p>
-                    <button class="service-btn" onclick="openServiceModal('Home Cleaning')">
-                        <i class="fas fa-camera"></i> Send Photos
-                    </button>
-                </div>
-            </div>
-
-            <!-- Immigration Documents -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500" alt="Immigration Documents">
-                </div>
-                <div class="service-content">
-                    <h3>Immigration Documents</h3>
-                    <p>Help with filling out all immigration forms and documents correctly and quickly.</p>
-                    <button class="service-btn" onclick="openServiceModal('Immigration Documents')">
-                        <i class="fas fa-file-pdf"></i> Send Documents
-                    </button>
-                </div>
-            </div>
-
-            <!-- Document Translation -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=500" alt="Document Translation">
-                </div>
-                <div class="service-content">
-                    <h3>Document Translation</h3>
-                    <p>Professional translation services in multiple languages. Certified translation available.</p>
-                    <button class="service-btn" onclick="openServiceModal('Document Translation')">
-                        <i class="fas fa-language"></i> Send Documents
-                    </button>
-                </div>
-            </div>
-
-            <!-- General Maintenance -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=500" alt="General Maintenance">
-                </div>
-                <div class="service-content">
-                    <h3>General Maintenance</h3>
-                    <p>Regular maintenance and repairs for your home. We handle all technical issues.</p>
-                    <button class="service-btn" onclick="openServiceModal('General Maintenance')">
-                        <i class="fas fa-tools"></i> Send Photos
-                    </button>
-                </div>
-            </div>
-
-            <!-- Basic Plumbing - ak nouvo foto -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1607472586893-544325c0bff3?w=500" alt="Plumbing">
-                </div>
-                <div class="service-content">
-                    <h3>Basic Plumbing</h3>
-                    <p>Pipe repairs, faucets, toilets, and other water-related issues. Fast and efficient.</p>
-                    <button class="service-btn" onclick="openServiceModal('Plumbing')">
-                        <i class="fas fa-wrench"></i> Send Photos
-                    </button>
-                </div>
-            </div>
-
-            <!-- Basic Electrical - NOUVO SÈVIS -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500" alt="Electrical">
-                </div>
-                <div class="service-content">
-                    <h3>Basic Electrical</h3>
-                    <p>Electrical repairs, outlet installation, light fixtures, and basic electrical work.</p>
-                    <button class="service-btn" onclick="openServiceModal('Electrical')">
-                        <i class="fas fa-bolt"></i> Send Photos
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tax Preparation - NOUVO SÈVIS -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=500" alt="Tax Preparation">
-                </div>
-                <div class="service-content">
-                    <h3>Tax Preparation</h3>
-                    <p>Professional tax preparation services for individuals and small businesses.</p>
-                    <button class="service-btn" onclick="openServiceModal('Tax Preparation')">
-                        <i class="fas fa-calculator"></i> Send Documents
-                    </button>
-                </div>
-            </div>
-
-            <!-- Handyman Services -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500" alt="Handyman">
-                </div>
-                <div class="service-content">
-                    <h3>Handyman Services</h3>
-                    <p>All-in-one service including electrical, plumbing, maintenance, and repairs.</p>
-                    <button class="service-btn" onclick="openServiceModal('Handyman')">
-                        <i class="fas fa-toolbox"></i> Send Photos
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>FLEUDY MULTISERVICES</h3>
-                <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
-                <p><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
-                <p><i class="fas fa-envelope"></i> info@fleudymultiservices.com</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 FLEUDY MULTISERVICES. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Modal pou voye foto -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3 id="modalTitle">Send Photos</h3>
-            <div style="text-align: center; padding: 20px;">
-                <i class="fas fa-upload" style="font-size: 50px; color: var(--primary-color);"></i>
-                <p style="margin: 20px 0;">Click to select photos for your service request</p>
-                <input type="file" id="serviceFile" multiple accept="image/*" style="display: none;">
-                <button class="service-btn" onclick="document.getElementById('serviceFile').click()" style="width: auto;">
-                    Choose Photos
-                </button>
-                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
-                    We will contact you shortly with an estimate
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Fonksyon pou chatbot AI
-        function toggleChatbot() {
-            const window = document.getElementById('chatbotWindow');
-            window.style.display = window.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // Fonksyon pou voye mesaj nan chatbot
-        function sendMessage() {
-            const input = document.getElementById('userInput');
-            const message = input.value.trim();
-            
-            if (message === '') return;
-            
-            // Ajoute mesaj itilizatè a
-            addMessage(message, 'user');
-            
-            // Vide input la
-            input.value = '';
-            
-            // AI repons
-            setTimeout(() => {
-                const response = getAIResponse(message);
-                addMessage(response, 'bot');
-            }, 1000);
-        }
-
-        // AI ki konnen tout sèvis yo
-        function getAIResponse(question) {
-            question = question.toLowerCase();
-            
-            // Repons sou chak sèvis
-            if (question.includes('clean') || question.includes('netwayaj')) {
-                return "🧹 Our Home Cleaning service includes: deep cleaning, kitchen cleaning, bathroom cleaning, and more. We use eco-friendly products. Would you like to schedule a cleaning?";
-            }
-            else if (question.includes('immigration') || question.includes('dokiman')) {
-                return "📄 We help with all immigration documents: applications, forms, renewals, and more. Our team is experienced with USCIS requirements. What document do you need help with?";
-            }
-            else if (question.includes('translat') || question.includes('tradiksyon')) {
-                return "🌐 We offer professional document translation in multiple languages: English, Spanish, French, Haitian Creole, and Portuguese. Certified translations available. What language pair do you need?";
-            }
-            else if (question.includes('maintenance') || question.includes('maitenens')) {
-                return "🔧 Our General Maintenance service covers: appliance repair, furniture assembly, drywall repair, painting, and more. Send us photos of what needs repair!";
-            }
-            else if (question.includes('plumb') || question.includes('plonbi')) {
-                return "🚰 Basic Plumbing: We fix leaks, unclog drains, repair faucets, toilets, and more. Fast response and quality work. What's the plumbing issue?";
-            }
-            else if (question.includes('electrical') || question.includes('elektrisite')) {
-                return "⚡ Basic Electrical: Outlet installation, light fixture repair, circuit troubleshooting, and more. Licensed and experienced. What electrical work do you need?";
-            }
-            else if (question.includes('tax') || question.includes('taks')) {
-                return "💰 Tax Preparation: Individual and business tax returns, tax planning, and consulting. We help maximize your refund. Would you like to schedule a consultation?";
-            }
-            else if (question.includes('handyman') || question.includes('brikolaj')) {
-                return "🛠️ Handyman Services: All-in-one solution for electrical, plumbing, maintenance, and repairs. One call fixes it all! What do you need help with?";
-            }
-            else if (question.includes('price') || question.includes('pri') || question.includes('cost') || question.includes('koute')) {
-                return "💵 Prices vary depending on the service and scope of work. Send us photos of what you need, and we'll give you a free estimate within 24 hours!";
-            }
-            else if (question.includes('hour') || question.includes('lè') || question.includes('schedule')) {
-                return "🕐 We're available Monday-Friday: 8AM-6PM, Saturday: 9AM-2PM. Emergency services available. When would you like to schedule?";
-            }
-            else if (question.includes('san diego') || question.includes('lokal')) {
-                return "📍 We serve all of San Diego County: Downtown, La Jolla, Chula Vista, El Cajon, Escondido, and more. Where are you located?";
-            }
-            else {
-                return "🤖 I can help you with information about all our services: Home Cleaning, Immigration Documents, Translation, Maintenance, Plumbing, Electrical, Tax Preparation, and Handyman Services. What would you like to know more about?";
-            }
-        }
-
-        function addMessage(text, sender) {
-            const messages = document.getElementById('chatbotMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message';
-            
-            const messageBubble = document.createElement('div');
-            messageBubble.className = sender === 'bot' ? 'bot-message' : 'user-message';
-            messageBubble.textContent = text;
-            
-            messageDiv.appendChild(messageBubble);
-            messages.appendChild(messageDiv);
-            
-            // Scroll to bottom
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        // Fonksyon pou ouvri modal chak sèvis
-        function openServiceModal(serviceName) {
-            document.getElementById('modalTitle').innerText = 'Send Photos for ' + serviceName;
-            document.getElementById('serviceModal').style.display = 'block';
-        }
-
-        // Fèmen modal
-        document.querySelector('.close').onclick = function() {
-            document.getElementById('serviceModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('serviceModal')) {
-                document.getElementById('serviceModal').style.display = 'none';
-            }
-        }
-
-        document.getElementById('serviceFile').addEventListener('change', function(e) {
-            alert('Thank you! Your photos have been received. We will contact you shortly with an estimate.');
-            document.getElementById('serviceModal').style.display = 'none';
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+<script>
+/* =========================
+   COMPLETE MULTI-LANGUAGE SYSTEM
+   ========================= */
+
+const translations = {
+    en: {
+        "nav-home": "Home",
+        "nav-services": "Services",
+        "nav-team": "Our Team",
+        "nav-contact": "Contact",
+        "hero-subtitle": "Your Trusted Partner in San Diego",
+        "hero-location": "Serving All San Diego County",
+        "hero-description": "Professional, Fast, and Quality Services for Your Home and Business Needs",
+        "hero-btn": "Explore Our Services",
+        "services-title": "Our Services",
+        "services-subtitle": "Choose the service you need and send photos for a free estimate",
+        "team-title": "Our Leadership Team",
+        "team-subtitle": "Meet the professionals behind FLEUDY MULTISERVICES",
+        "whatsapp": "WhatsApp Us"
+    },
+
+    ht: {
+        "nav-home": "Akèy",
+        "nav-services": "Sèvis",
+        "nav-team": "Ekip Nou",
+        "nav-contact": "Kontak",
+        "hero-subtitle": "Patnè ou ka fè konfyans nan San Diego",
+        "hero-location": "Nou sèvi tout San Diego County",
+        "hero-description": "Sèvis pwofesyonèl, rapid ak kalite pou kay ou ak biznis ou",
+        "hero-btn": "Dekouvri Sèvis Nou yo",
+        "services-title": "Sèvis Nou yo",
+        "services-subtitle": "Chwazi sèvis ou bezwen an epi voye foto pou yon estimasyon gratis",
+        "team-title": "Ekip Lidèchip Nou an",
+        "team-subtitle": "Rankontre pwofesyonèl ki dèyè FLEUDY MULTISERVICES",
+        "whatsapp": "WhatsApp Nou"
+    },
+
+    fr: {
+        "nav-home": "Accueil",
+        "nav-services": "Services",
+        "nav-team": "Notre Équipe",
+        "nav-contact": "Contact",
+        "hero-subtitle": "Votre partenaire de confiance à San Diego",
+        "hero-location": "Nous servons tout le comté de San Diego",
+        "hero-description": "Services professionnels, rapides et de qualité pour votre maison et entreprise",
+        "hero-btn": "Découvrir nos services",
+        "services-title": "Nos Services",
+        "services-subtitle": "Choisissez le service dont vous avez besoin et envoyez des photos pour un devis gratuit",
+        "team-title": "Notre Équipe de Direction",
+        "team-subtitle": "Rencontrez les professionnels derrière FLEUDY MULTISERVICES",
+        "whatsapp": "Contact WhatsApp"
+    },
+
+    es: {
+        "nav-home": "Inicio",
+        "nav-services": "Servicios",
+        "nav-team": "Nuestro Equipo",
+        "nav-contact": "Contacto",
+        "hero-subtitle": "Su socio de confianza en San Diego",
+        "hero-location": "Atendemos todo el condado de San Diego",
+        "hero-description": "Servicios profesionales, rápidos y de calidad para su hogar y negocio",
+        "hero-btn": "Explorar Servicios",
+        "services-title": "Nuestros Servicios",
+        "services-subtitle": "Elija el servicio que necesita y envíe fotos para una cotización gratis",
+        "team-title": "Nuestro Equipo Directivo",
+        "team-subtitle": "Conozca a los profesionales detrás de FLEUDY MULTISERVICES",
+        "whatsapp": "WhatsApp"
+    },
+
+    pt: {
+        "nav-home": "Início",
+        "nav-services": "Serviços",
+        "nav-team": "Nossa Equipe",
+        "nav-contact": "Contato",
+        "hero-subtitle": "Seu parceiro de confiança em San Diego",
+        "hero-location": "Atendemos todo o Condado de San Diego",
+        "hero-description": "Serviços profissionais, rápidos e de qualidade para sua casa e empresa",
+        "hero-btn": "Explorar Serviços",
+        "services-title": "Nossos Serviços",
+        "services-subtitle": "Escolha o serviço que precisa e envie fotos para orçamento gratuito",
+        "team-title": "Nossa Liderança",
+        "team-subtitle": "Conheça os profissionais por trás da FLEUDY MULTISERVICES",
+        "whatsapp": "WhatsApp"
+    }
+};
+
+function changeLanguage(lang) {
+    document.querySelector(".nav-container a:nth-child(1)").textContent = translations[lang]["nav-home"];
+    document.querySelector(".nav-container a:nth-child(2)").textContent = translations[lang]["nav-services"];
+    document.querySelector(".nav-container a:nth-child(3)").textContent = translations[lang]["nav-team"];
+    document.querySelector(".nav-container a:nth-child(4)").textContent = translations[lang]["nav-contact"];
+
+    document.querySelector(".hero h2").textContent = translations[lang]["hero-subtitle"];
+    document.querySelector(".hero .location").childNodes[1].nodeValue =
+        " " + translations[lang]["hero-location"];
+
+    document.querySelector(".hero p").textContent = translations[lang]["hero-description"];
+    document.querySelector(".hero-btn").textContent = translations[lang]["hero-btn"];
+
+    document.querySelector("#services .section-title h2").textContent =
+        translations[lang]["services-title"];
+
+    document.querySelector("#services .section-title p").textContent =
+        translations[lang]["services-subtitle"];
+
+    document.querySelector("#team .section-title h2").textContent =
+        translations[lang]["team-title"];
+
+    document.querySelector("#team .section-title p").textContent =
+        translations[lang]["team-subtitle"];
+
+    document.querySelector(".whatsapp-btn").lastChild.textContent =
+        " " + translations[lang]["whatsapp"];
+}
+
+/* =========================
+   CHATBOT FIXED
+   ========================= */
+
+function toggleChatbot() {
+    const win = document.getElementById("chatbotWindow");
+    win.style.display = win.style.display === "block" ? "none" : "block";
+}
+
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    addMessage(message, "user");
+    input.value = "";
+
+    setTimeout(() => {
+        addMessage(getAIResponse(message), "bot");
+    }, 800);
+}
+
+function addMessage(text, type) {
+    const container = document.getElementById("chatbotMessages");
+    const msg = document.createElement("div");
+    msg.className = "message";
+
+    const bubble = document.createElement("div");
+    bubble.className = type === "user" ? "user-message" : "bot-message";
+    bubble.textContent = text;
+
+    msg.appendChild(bubble);
+    container.appendChild(msg);
+    container.scrollTop = container.scrollHeight;
+}
+
+function getAIResponse(message) {
+    message = message.toLowerCase();
+
+    if (message.includes("price") || message.includes("estimate"))
+        return "Please send photos through WhatsApp for a free estimate.";
+    if (message.includes("tax"))
+        return "We provide professional tax preparation services.";
+    if (message.includes("immigration"))
+        return "We help with immigration forms and documents.";
+    if (message.includes("cleaning"))
+        return "We offer professional home cleaning services.";
+
+    return "Thank you for contacting Fleudy Multiservices. We will assist you shortly.";
+}
+</script>

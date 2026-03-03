@@ -1,171 +1,1037 @@
-<script>
-/* =========================
-   COMPLETE SAFE MULTI-LANGUAGE SYSTEM
-   ========================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEUDY MULTISERVICES - Professional Services in San Diego</title>
+    <!-- Font Awesome pou icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-const translations = {
-    en: {
-        navHome: "Home",
-        navServices: "Services",
-        navTeam: "Our Team",
-        navContact: "Contact",
-        heroSubtitle: "Your Trusted Partner in San Diego",
-        heroLocation: "Serving All San Diego County",
-        heroDesc: "Professional, Fast, and Quality Services for Your Home and Business Needs",
-        heroBtn: "Explore Our Services",
-        servicesTitle: "Our Services",
-        servicesSub: "Choose the service you need and send photos for a free estimate",
-        teamTitle: "Our Leadership Team",
-        teamSub: "Meet the professionals behind FLEUDY MULTISERVICES",
-        whatsapp: "WhatsApp Us"
-    },
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    ht: {
-        navHome: "Akèy",
-        navServices: "Sèvis",
-        navTeam: "Ekip Nou",
-        navContact: "Kontak",
-        heroSubtitle: "Patnè ou ka fè konfyans nan San Diego",
-        heroLocation: "Nou sèvi tout San Diego County",
-        heroDesc: "Sèvis pwofesyonèl, rapid ak kalite pou kay ou ak biznis ou",
-        heroBtn: "Dekouvri Sèvis Nou yo",
-        servicesTitle: "Sèvis Nou yo",
-        servicesSub: "Chwazi sèvis ou bezwen an epi voye foto pou yon estimasyon gratis",
-        teamTitle: "Ekip Lidèchip Nou an",
-        teamSub: "Rankontre pwofesyonèl ki dèyè FLEUDY MULTISERVICES",
-        whatsapp: "WhatsApp Nou"
-    },
+        /* Koulè bleu-vèt la */
+        :root {
+            --primary-color: #2E5E8B;
+            --secondary-color: #4CAF50;
+            --accent-color: #25D366;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+        }
 
-    fr: {
-        navHome: "Accueil",
-        navServices: "Services",
-        navTeam: "Notre Équipe",
-        navContact: "Contact",
-        heroSubtitle: "Votre partenaire de confiance à San Diego",
-        heroLocation: "Nous servons tout le comté de San Diego",
-        heroDesc: "Services professionnels, rapides et de qualité pour votre maison et entreprise",
-        heroBtn: "Découvrir nos services",
-        servicesTitle: "Nos Services",
-        servicesSub: "Choisissez le service dont vous avez besoin et envoyez des photos pour un devis gratuit",
-        teamTitle: "Notre Équipe de Direction",
-        teamSub: "Rencontrez les professionnels derrière FLEUDY MULTISERVICES",
-        whatsapp: "WhatsApp"
-    },
+        /* Header la */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    es: {
-        navHome: "Inicio",
-        navServices: "Servicios",
-        navTeam: "Nuestro Equipo",
-        navContact: "Contacto",
-        heroSubtitle: "Su socio de confianza en San Diego",
-        heroLocation: "Atendemos todo el condado de San Diego",
-        heroDesc: "Servicios profesionales, rápidos y de calidad para su hogar y negocio",
-        heroBtn: "Explorar Servicios",
-        servicesTitle: "Nuestros Servicios",
-        servicesSub: "Elija el servicio que necesita y envíe fotos para una cotización gratis",
-        teamTitle: "Nuestro Equipo Directivo",
-        teamSub: "Conozca a los profesionales detrás de FLEUDY MULTISERVICES",
-        whatsapp: "WhatsApp"
-    },
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
 
-    pt: {
-        navHome: "Início",
-        navServices: "Serviços",
-        navTeam: "Nossa Equipe",
-        navContact: "Contato",
-        heroSubtitle: "Seu parceiro de confiança em San Diego",
-        heroLocation: "Atendemos todo o Condado de San Diego",
-        heroDesc: "Serviços profissionais, rápidos e de qualidade para sua casa e empresa",
-        heroBtn: "Explorar Serviços",
-        servicesTitle: "Nossos Serviços",
-        servicesSub: "Escolha o serviço que precisa e envie fotos para orçamento gratuito",
-        teamTitle: "Nossa Liderança",
-        teamSub: "Conheça os profissionais por trás da FLEUDY MULTISERVICES",
-        whatsapp: "WhatsApp"
-    }
-};
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-function changeLanguage(lang) {
+        /* Logo ou */
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+        }
 
-    if (!translations[lang]) return;
+        .company-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
 
-    document.querySelector(".nav-container a:nth-child(1)").textContent = translations[lang].navHome;
-    document.querySelector(".nav-container a:nth-child(2)").textContent = translations[lang].navServices;
-    document.querySelector(".nav-container a:nth-child(3)").textContent = translations[lang].navTeam;
-    document.querySelector(".nav-container a:nth-child(4)").textContent = translations[lang].navContact;
+        .company-name p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
 
-    document.querySelector(".hero h2").textContent = translations[lang].heroSubtitle;
+        .company-name p i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
 
-    const locationEl = document.querySelector(".hero .location");
-    locationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${translations[lang].heroLocation}`;
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-    document.querySelector(".hero p").textContent = translations[lang].heroDesc;
-    document.querySelector(".hero-btn").textContent = translations[lang].heroBtn;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    document.querySelector("#services .section-title h2").textContent =
-        translations[lang].servicesTitle;
+        .contact-item i {
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
 
-    document.querySelector("#services .section-title p").textContent =
-        translations[lang].servicesSub;
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
 
-    document.querySelector("#team .section-title h2").textContent =
-        translations[lang].teamTitle;
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
 
-    document.querySelector("#team .section-title p").textContent =
-        translations[lang].teamSub;
+        /* WhatsApp bouton - fiks byen adwat */
+        .whatsapp-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid white;
+            margin-left: auto;
+            margin-right: 20px;
+        }
 
-    document.querySelector(".whatsapp-btn").innerHTML =
-        `<i class="fab fa-whatsapp"></i> ${translations[lang].whatsapp}`;
-}
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-/* =========================
-   CHATBOT SAFE VERSION
-   ========================= */
+        .whatsapp-btn i {
+            font-size: 1.3rem;
+        }
 
-function toggleChatbot() {
-    const win = document.getElementById("chatbotWindow");
-    win.style.display = win.style.display === "block" ? "none" : "block";
-}
+        /* Language Selector */
+        .language-selector {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
-function sendMessage() {
-    const input = document.getElementById("userInput");
-    const message = input.value.trim();
-    if (!message) return;
+        .language-selector select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            font-size: 1rem;
+        }
 
-    addMessage(message, "user");
-    input.value = "";
+        .language-selector select option {
+            background: var(--primary-color);
+            color: white;
+        }
 
-    setTimeout(() => {
-        addMessage(getAIResponse(message), "bot");
-    }, 800);
-}
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-color);
+        }
 
-function addMessage(text, type) {
-    const container = document.getElementById("chatbotMessages");
-    const msg = document.createElement("div");
-    msg.className = "message";
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
 
-    const bubble = document.createElement("div");
-    bubble.className = type === "user" ? "user-message" : "bot-message";
-    bubble.textContent = text;
+        .nav-container a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
 
-    msg.appendChild(bubble);
-    container.appendChild(msg);
-    container.scrollTop = container.scrollHeight;
-}
+        .nav-container a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
 
-function getAIResponse(message) {
-    message = message.toLowerCase();
+        /* Hero Section ak animasyon */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
 
-    if (message.includes("price") || message.includes("estimate"))
-        return "Please send photos through WhatsApp for a free estimate.";
-    if (message.includes("tax"))
-        return "We provide professional tax preparation services.";
-    if (message.includes("immigration"))
-        return "We help with immigration forms and documents.";
-    if (message.includes("cleaning"))
-        return "We offer professional home cleaning services.";
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-    return "Thank you for contacting Fleudy Multiservices. We will assist you shortly.";
-}
-</script>
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: slideShow 24s infinite;
+        }
+
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 6s; }
+        .slide:nth-child(3) { animation-delay: 12s; }
+        .slide:nth-child(4) { animation-delay: 18s; }
+
+        @keyframes slideShow {
+            0% { opacity: 0; }
+            8% { opacity: 1; }
+            25% { opacity: 1; }
+            33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(46, 94, 139, 0.7), rgba(76, 175, 80, 0.7));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero .location {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .location i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .hero-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .service-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            width: 100%;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .service-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Team Section */
+        .team {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(46, 94, 139, 0.2);
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .team-member h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .member-phone {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .member-phone i {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+
+        /* AI Chatbot */
+        .ai-chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+            display: none;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .bot-message {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px 15px 15px 0;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px 15px 0 15px;
+            max-width: 80%;
+            margin-left: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+
+        .footer-section i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 35px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .whatsapp-btn {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header la -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo">
+                    FLEUDY<br>MULTISERVICES
+                </div>
+                <div class="company-name">
+                    <h1>FLEUDY MULTISERVICES</h1>
+                    <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+16199208096">+1 (619) 920-8096</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@fleudymultiservices.com">info@fleudymultiservices.com</a>
+                </div>
+            </div>
+
+            <!-- WhatsApp bouton byen vizib -->
+            <a href="https://wa.me/16199208096" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp Us
+            </a>
+
+            <div class="language-selector">
+                <select id="language" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="ht">Kreyòl</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigasyon -->
+    <nav>
+        <div class="nav-container">
+            <a onclick="scrollToSection('home')">Home</a>
+            <a onclick="scrollToSection('services')">Services</a>
+            <a onclick="scrollToSection('team')">Our Team</a>
+            <a onclick="scrollToSection('contact')">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section ak animasyon -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide"><img src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?w=1920" alt="San Diego"></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1920" alt="San Diego"></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1920" alt="San Diego"></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?w=1920" alt="San Diego"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>FLEUDY MULTISERVICES</h1>
+            <h2>Your Trusted Partner in San Diego</h2>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Serving All San Diego County</div>
+            <p>Professional, Fast, and Quality Services for Your Home and Business Needs</p>
+            <a onclick="scrollToSection('services')" class="hero-btn">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="ai-chatbot">
+        <div class="chatbot-btn" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3><i class="fas fa-robot"></i> Fleudy AI Assistant</h3>
+                <span class="close-chat" onclick="toggleChatbot()">×</span>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message">
+                    <div class="bot-message">
+                        👋 Hi! I'm Fleudy's AI assistant. How can I help you today?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Choose the service you need and send photos for a free estimate</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Home Cleaning -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500" alt="Home Cleaning"></div>
+                <div class="service-content">
+                    <h3>Home Cleaning</h3>
+                    <p>Professional cleaning for your home.</p>
+                    <button class="service-btn" onclick="openServiceModal('Home Cleaning')"><i class="fas fa-camera"></i> Send Photos</button>
+                </div>
+            </div>
+
+            <!-- Immigration Documents -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500" alt="Immigration"></div>
+                <div class="service-content">
+                    <h3>Immigration Documents</h3>
+                    <p>Help with immigration forms.</p>
+                    <button class="service-btn" onclick="openServiceModal('Immigration Documents')"><i class="fas fa-file-pdf"></i> Send Documents</button>
+                </div>
+            </div>
+
+            <!-- Document Translation -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=500" alt="Translation"></div>
+                <div class="service-content">
+                    <h3>Document Translation</h3>
+                    <p>Professional translation services.</p>
+                    <button class="service-btn" onclick="openServiceModal('Document Translation')"><i class="fas fa-language"></i> Send Documents</button>
+                </div>
+            </div>
+
+            <!-- General Maintenance -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=500" alt="Maintenance"></div>
+                <div class="service-content">
+                    <h3>General Maintenance</h3>
+                    <p>Home repairs and maintenance.</p>
+                    <button class="service-btn" onclick="openServiceModal('General Maintenance')"><i class="fas fa-tools"></i> Send Photos</button>
+                </div>
+            </div>
+
+            <!-- Basic Plumbing -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=500" alt="Plumbing"></div>
+                <div class="service-content">
+                    <h3>Basic Plumbing</h3>
+                    <p>Pipe and faucet repairs.</p>
+                    <button class="service-btn" onclick="openServiceModal('Plumbing')"><i class="fas fa-wrench"></i> Send Photos</button>
+                </div>
+            </div>
+
+            <!-- Basic Electrical -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500" alt="Electrical"></div>
+                <div class="service-content">
+                    <h3>Basic Electrical</h3>
+                    <p>Electrical repairs and installation.</p>
+                    <button class="service-btn" onclick="openServiceModal('Electrical')"><i class="fas fa-bolt"></i> Send Photos</button>
+                </div>
+            </div>
+
+            <!-- Tax Preparation -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=500" alt="Tax"></div>
+                <div class="service-content">
+                    <h3>Tax Preparation</h3>
+                    <p>Professional tax services.</p>
+                    <button class="service-btn" onclick="openServiceModal('Tax Preparation')"><i class="fas fa-calculator"></i> Send Documents</button>
+                </div>
+            </div>
+
+            <!-- Handyman Services -->
+            <div class="service-card">
+                <div class="service-image"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500" alt="Handyman"></div>
+                <div class="service-content">
+                    <h3>Handyman Services</h3>
+                    <p>All-in-one repair services.</p>
+                    <button class="service-btn" onclick="openServiceModal('Handyman')"><i class="fas fa-toolbox"></i> Send Photos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="section-title">
+            <h2>Our Leadership Team</h2>
+            <p>Meet the professionals behind FLEUDY MULTISERVICES</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Jean Fleudy - CEO -->
+            <div class="team-member">
+                <div class="member-photo"><i class="fas fa-user-tie"></i></div>
+                <h3>Jean Fleudy</h3>
+                <p class="member-role">CEO & Founder</p>
+                <p>15+ years of experience</p>
+                <p class="member-phone"><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
+            </div>
+
+            <!-- Fedelson Jean - Manager -->
+            <div class="team-member">
+                <div class="member-photo"><i class="fas fa-user-cog"></i></div>
+                <h3>Fedelson Jean</h3>
+                <p class="member-role">Manager</p>
+                <p>Operations expert</p>
+                <p class="member-phone"><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
+            </div>
+
+            <!-- Jacky Jean - Service Coordinator -->
+            <div class="team-member">
+                <div class="member-photo"><i class="fas fa-user-clock"></i></div>
+                <h3>Jacky Jean</h3>
+                <p class="member-role">Service Coordinator</p>
+                <p>Scheduling & quality assurance</p>
+                <p class="member-phone"><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FLEUDY MULTISERVICES</h3>
+                <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
+                <p><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
+                <p><i class="fas fa-envelope"></i> info@fleudymultiservices.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 FLEUDY MULTISERVICES. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Send Photos</h3>
+            <div style="text-align: center; padding: 20px;">
+                <i class="fas fa-upload" style="font-size: 50px; color: var(--primary-color);"></i>
+                <p style="margin: 20px 0;">Click to select photos</p>
+                <input type="file" id="serviceFile" multiple accept="image/*" style="display: none;">
+                <button class="service-btn" onclick="document.getElementById('serviceFile').click()" style="width: auto;">Choose Photos</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* =========================
+           COMPLETE SAFE MULTI-LANGUAGE SYSTEM
+           ========================= */
+        
+        const translations = {
+            en: {
+                navHome: "Home",
+                navServices: "Services",
+                navTeam: "Our Team",
+                navContact: "Contact",
+                heroSubtitle: "Your Trusted Partner in San Diego",
+                heroLocation: "Serving All San Diego County",
+                heroDesc: "Professional, Fast, and Quality Services for Your Home and Business Needs",
+                heroBtn: "Explore Our Services",
+                servicesTitle: "Our Services",
+                servicesSub: "Choose the service you need and send photos for a free estimate",
+                teamTitle: "Our Leadership Team",
+                teamSub: "Meet the professionals behind FLEUDY MULTISERVICES",
+                whatsapp: "WhatsApp Us"
+            },
+        
+            ht: {
+                navHome: "Akèy",
+                navServices: "Sèvis",
+                navTeam: "Ekip Nou",
+                navContact: "Kontak",
+                heroSubtitle: "Patnè ou ka fè konfyans nan San Diego",
+                heroLocation: "Nou sèvi tout San Diego County",
+                heroDesc: "Sèvis pwofesyonèl, rapid ak kalite pou kay ou ak biznis ou",
+                heroBtn: "Dekouvri Sèvis Nou yo",
+                servicesTitle: "Sèvis Nou yo",
+                servicesSub: "Chwazi sèvis ou bezwen an epi voye foto pou yon estimasyon gratis",
+                teamTitle: "Ekip Lidèchip Nou an",
+                teamSub: "Rankontre pwofesyonèl ki dèyè FLEUDY MULTISERVICES",
+                whatsapp: "WhatsApp Nou"
+            },
+        
+            fr: {
+                navHome: "Accueil",
+                navServices: "Services",
+                navTeam: "Notre Équipe",
+                navContact: "Contact",
+                heroSubtitle: "Votre partenaire de confiance à San Diego",
+                heroLocation: "Nous servons tout le comté de San Diego",
+                heroDesc: "Services professionnels, rapides et de qualité pour votre maison et entreprise",
+                heroBtn: "Découvrir nos services",
+                servicesTitle: "Nos Services",
+                servicesSub: "Choisissez le service dont vous avez besoin et envoyez des photos pour un devis gratuit",
+                teamTitle: "Notre Équipe de Direction",
+                teamSub: "Rencontrez les professionnels derrière FLEUDY MULTISERVICES",
+                whatsapp: "WhatsApp"
+            },
+        
+            es: {
+                navHome: "Inicio",
+                navServices: "Servicios",
+                navTeam: "Nuestro Equipo",
+                navContact: "Contacto",
+                heroSubtitle: "Su socio de confianza en San Diego",
+                heroLocation: "Atendemos todo el condado de San Diego",
+                heroDesc: "Servicios profesionales, rápidos y de calidad para su hogar y negocio",
+                heroBtn: "Explorar Servicios",
+                servicesTitle: "Nuestros Servicios",
+                servicesSub: "Elija el servicio que necesita y envíe fotos para una cotización gratis",
+                teamTitle: "Nuestro Equipo Directivo",
+                teamSub: "Conozca a los profesionales detrás de FLEUDY MULTISERVICES",
+                whatsapp: "WhatsApp"
+            },
+        
+            pt: {
+                navHome: "Início",
+                navServices: "Serviços",
+                navTeam: "Nossa Equipe",
+                navContact: "Contato",
+                heroSubtitle: "Seu parceiro de confiança em San Diego",
+                heroLocation: "Atendemos todo o Condado de San Diego",
+                heroDesc: "Serviços profissionais, rápidos e de qualidade para sua casa e empresa",
+                heroBtn: "Explorar Serviços",
+                servicesTitle: "Nossos Serviços",
+                servicesSub: "Escolha o serviço que precisa e envie fotos para orçamento gratuito",
+                teamTitle: "Nossa Liderança",
+                teamSub: "Conheça os profissionais por trás da FLEUDY MULTISERVICES",
+                whatsapp: "WhatsApp"
+            }
+        };
+        
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+        
+            document.querySelector(".nav-container a:nth-child(1)").textContent = translations[lang].navHome;
+            document.querySelector(".nav-container a:nth-child(2)").textContent = translations[lang].navServices;
+            document.querySelector(".nav-container a:nth-child(3)").textContent = translations[lang].navTeam;
+            document.querySelector(".nav-container a:nth-child(4)").textContent = translations[lang].navContact;
+        
+            document.querySelector(".hero h2").textContent = translations[lang].heroSubtitle;
+        
+            const locationEl = document.querySelector(".hero .location");
+            locationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${translations[lang].heroLocation}`;
+        
+            document.querySelector(".hero p").textContent = translations[lang].heroDesc;
+            document.querySelector(".hero-btn").textContent = translations[lang].heroBtn;
+        
+            document.querySelector("#services

@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fleudy Multiservices</title>
 
+<!-- =========================
+SECTION 1 - GLOBAL STYLE
+========================= -->
 <style>
 
 body{
@@ -13,7 +16,9 @@ body{
     background:#f4f7f9;
 }
 
-/* HEADER */
+/* =========================
+SECTION 2 - HEADER
+========================= */
 header{
     background:linear-gradient(90deg,#0a3d62,#1abc9c);
     color:white;
@@ -23,9 +28,8 @@ header{
     align-items:center;
 }
 
-.logo{
-    font-size:24px;
-    font-weight:bold;
+.logo img{
+    height:70px;
 }
 
 .contact-info{
@@ -45,7 +49,9 @@ button:hover{
     background:#16a085;
 }
 
-/* HERO */
+/* =========================
+SECTION 3 - HERO
+========================= */
 .hero{
     text-align:center;
     padding:80px 20px;
@@ -57,21 +63,12 @@ button:hover{
     color:#0a3d62;
 }
 
-.hero p{
-    color:#555;
-    font-size:18px;
-}
-
-/* SERVICES */
+/* =========================
+SECTION 4 - SERVICES
+========================= */
 .services{
     padding:60px 40px;
     background:#ffffff;
-}
-
-.services h2{
-    text-align:center;
-    margin-bottom:40px;
-    color:#0a3d62;
 }
 
 .service-grid{
@@ -95,31 +92,49 @@ button:hover{
     border-radius:6px;
 }
 
-.service-card h3{
-    margin:15px 0 10px;
-}
-
-/* ABOUT */
-.about{
-    padding:60px 40px;
+/* =========================
+SECTION 5 - GALLERY
+========================= */
+.gallery{
+    padding:60px;
     background:#eef2f5;
-}
-
-.about h2{
     text-align:center;
-    color:#0a3d62;
 }
 
-.about p{
-    max-width:800px;
-    margin:20px auto;
+.gallery img{
+    width:300px;
+    margin:10px;
+    border-radius:8px;
+}
+
+/* =========================
+SECTION 6 - ABOUT US
+========================= */
+.about{
+    padding:60px;
+    background:white;
     text-align:center;
-    color:#555;
 }
 
-/* REVIEWS */
+/* =========================
+SECTION 7 - TEAM
+========================= */
+.team{
+    padding:60px;
+    background:#eef2f5;
+    text-align:center;
+}
+
+.team img{
+    width:150px;
+    border-radius:50%;
+}
+
+/* =========================
+SECTION 8 - REVIEWS
+========================= */
 .reviews{
-    padding:60px 40px;
+    padding:60px;
     background:white;
     text-align:center;
 }
@@ -129,7 +144,9 @@ button:hover{
     font-size:20px;
 }
 
-/* FOOTER */
+/* =========================
+SECTION 9 - FOOTER
+========================= */
 footer{
     background:#0a3d62;
     color:white;
@@ -137,6 +154,9 @@ footer{
     padding:20px;
 }
 
+/* =========================
+SECTION 10 - WHATSAPP BUTTON
+========================= */
 .whatsapp{
     position:fixed;
     bottom:20px;
@@ -146,6 +166,7 @@ footer{
     border-radius:50%;
     color:white;
     font-size:22px;
+    text-decoration:none;
 }
 
 </style>
@@ -153,77 +174,98 @@ footer{
 
 <body>
 
+<!-- =========================
+SECTION 2 - HEADER HTML
+========================= -->
 <header>
-    <div class="logo">FM Fleudy Multiservices</div>
+    <div class="logo">
+        <img src="WLogo.jpg" alt="Fleudy Logo">
+    </div>
     <div class="contact-info">
         📞 619-000-0000 | ✉ info@fleudyms.com
-        <button>Our Services</button>
     </div>
 </header>
 
+<!-- =========================
+SECTION 3 - HERO HTML
+========================= -->
 <section class="hero">
     <h1>Professional & Reliable Services</h1>
-    <p>Cleaning • Immigration Help • Translation • Tax • Handyman</p>
-    <button>Request Service</button>
+    <p>Cleaning • Immigration • Translation • Tax • Handyman</p>
 </section>
 
+<!-- =========================
+SECTION 4 - SERVICES HTML
+========================= -->
 <section class="services">
-    <h2>Our Services</h2>
+    <h2 style="text-align:center;">Our Services</h2>
     <div class="service-grid">
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
             <h3>Home Cleaning</h3>
-            <button>Send Photo</button>
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216">
             <h3>Immigration Help</h3>
-            <button>Contact Us</button>
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
             <h3>Translation</h3>
-            <button>Contact Us</button>
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
             <h3>Tax Preparation</h3>
-            <button>Book Appointment</button>
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1581093458791-9d3e8b4d5a29">
             <h3>Handyman</h3>
-            <button>Send Photo</button>
         </div>
 
     </div>
 </section>
 
-<section class="about">
-    <h2>About Us</h2>
-    <p>
-        Fleudy Multiservices is a professional company dedicated to providing 
-        reliable, efficient, and high-quality services. Our mission is to 
-        deliver excellence in every project and ensure customer satisfaction.
-    </p>
+<!-- =========================
+SECTION 5 - GALLERY HTML
+========================= -->
+<section class="gallery">
+    <h2>Recent Projects</h2>
 </section>
 
+<!-- =========================
+SECTION 6 - ABOUT HTML
+========================= -->
+<section class="about">
+    <h2>About Us</h2>
+    <p>We provide professional and reliable services with excellence.</p>
+</section>
+
+<!-- =========================
+SECTION 7 - TEAM HTML
+========================= -->
+<section class="team">
+    <h2>CEO</h2>
+    <p>Fleudy Jean</p>
+</section>
+
+<!-- =========================
+SECTION 8 - REVIEWS HTML
+========================= -->
 <section class="reviews">
     <h2>Customer Reviews</h2>
     <div class="stars">★★★★★</div>
-    <p>"Excellent service, very professional and fast!"</p>
 </section>
 
+<!-- =========================
+SECTION 9 - FOOTER
+========================= -->
 <footer>
-    © 2026 Fleudy Multiservices | All Rights Reserved
+    © 2026 Fleudy Multiservices
 </footer>
 
-<div class="whatsapp">💬</div>
+<!-- =========================
+SECTION 10 - WHATSAPP
+========================= -->
+<a class="whatsapp" href="https://wa.me/16190000000" target="_blank">💬</a>
 
 </body>
 </html>

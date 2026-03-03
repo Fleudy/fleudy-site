@@ -21,9 +21,9 @@
 
         /* Koulè bleu-vèt la */
         :root {
-            --primary-color: #2E5E8B;  /* Kole bleu melange ak vèt */
-            --secondary-color: #4CAF50; /* Vèt */
-            --accent-color: #25D366;    /* Koulè WhatsApp */
+            --primary-color: #2E5E8B;
+            --secondary-color: #4CAF50;
+            --accent-color: #25D366;
             --light-bg: #f9f9f9;
             --dark-text: #333;
         }
@@ -55,46 +55,21 @@
             gap: 15px;
         }
 
+        /* Se ou ki pral mete logo ou la */
         .logo {
             width: 100px;
             height: 100px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            line-height: 1.2;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .logo .fleudy {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .logo .multiservices {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--secondary-color);
-            border-top: 2px solid var(--secondary-color);
-            padding-top: 5px;
-            margin-top: 5px;
-            letter-spacing: 1px;
+            /* Mete logo ou isit */
+            background-image: url('chemen-pou-logo-ou.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .company-name h1 {
             font-size: 1.8rem;
             margin-bottom: 5px;
             font-weight: 800;
-            letter-spacing: 1px;
         }
 
         .company-name p {
@@ -135,7 +110,7 @@
             color: var(--secondary-color);
         }
 
-        /* WhatsApp bouton adwat nan mitan */
+        /* WhatsApp bouton - byen vizib */
         .whatsapp-btn {
             background-color: var(--accent-color);
             color: white;
@@ -147,15 +122,17 @@
             gap: 10px;
             font-weight: bold;
             transition: all 0.3s;
-            position: relative;
-            right: 0;
-            margin: 0 10px;
+            border: 2px solid white;
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.05);
             background-color: #128C7E;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.3rem;
         }
 
         /* Language Selector */
@@ -163,9 +140,6 @@
             background: rgba(255,255,255,0.1);
             padding: 5px 15px;
             border-radius: 20px;
-            display: flex;
-            gap: 10px;
-            cursor: pointer;
         }
 
         .language-selector select {
@@ -212,7 +186,7 @@
             color: white;
         }
 
-        /* Hero Section ak bèl videyo/imaj San Diego */
+        /* Hero Section ak imaj San Diego */
         .hero {
             position: relative;
             height: 100vh;
@@ -224,7 +198,7 @@
             text-align: center;
         }
 
-        .hero-video {
+        .hero-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -240,7 +214,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(46, 94, 139, 0.7), rgba(76, 175, 80, 0.7));
+            background: linear-gradient(rgba(46, 94, 139, 0.8), rgba(76, 175, 80, 0.8));
             z-index: -1;
         }
 
@@ -252,23 +226,20 @@
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1s;
         }
 
         .hero h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             font-weight: 300;
-            animation: fadeInUp 1s 0.3s both;
         }
 
         .hero .location {
             font-size: 1.5rem;
             margin-bottom: 30px;
-            animation: fadeInUp 1s 0.6s both;
         }
 
         .hero .location i {
@@ -280,30 +251,6 @@
             font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s 0.9s both;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-btn {
@@ -316,7 +263,6 @@
             font-size: 1.2rem;
             transition: all 0.3s;
             display: inline-block;
-            animation: fadeInUp 1s 1.2s both;
         }
 
         .hero-btn:hover {
@@ -365,8 +311,8 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
@@ -376,18 +322,16 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s;
             border-bottom: 4px solid var(--secondary-color);
-            position: relative;
         }
 
         .service-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(46, 94, 139, 0.2);
         }
 
         .service-image {
-            height: 250px;
+            height: 200px;
             overflow: hidden;
-            position: relative;
         }
 
         .service-image img {
@@ -401,38 +345,28 @@
             transform: scale(1.1);
         }
 
-        .service-image:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.5));
-        }
-
         .service-content {
-            padding: 25px;
+            padding: 20px;
         }
 
         .service-content h3 {
             color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
             font-weight: 700;
         }
 
         .service-content p {
             color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
         .service-btn {
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 12px 30px;
+            padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -440,21 +374,18 @@
             cursor: pointer;
             border: none;
             width: 100%;
-            font-size: 1rem;
-            text-align: center;
+            font-size: 0.95rem;
         }
 
         .service-btn:hover {
             background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
 
         .service-btn i {
             margin-right: 8px;
         }
 
-        /* AI Chatbot gratuit */
+        /* AI Chatbot */
         .ai-chatbot {
             position: fixed;
             bottom: 20px;
@@ -566,395 +497,6 @@
             cursor: pointer;
         }
 
-        /* Upload Section */
-        .upload-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 80px 20px;
-        }
-
-        .upload-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .upload-container h2 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .upload-area {
-            background: white;
-            border: 3px dashed var(--primary-color);
-            border-radius: 20px;
-            padding: 50px;
-            margin-top: 40px;
-            transition: all 0.3s;
-        }
-
-        .upload-area:hover {
-            border-color: var(--secondary-color);
-            background: #f0f8ff;
-        }
-
-        .upload-area i {
-            font-size: 70px;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-        }
-
-        .upload-area h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .upload-btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-top: 25px;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-
-        .upload-btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            position: relative;
-            height: 280px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(46, 94, 139, 0.9));
-            color: white;
-            padding: 30px 20px 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .gallery-overlay h4 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 80px 20px;
-        }
-
-        .reviews-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .reviews-container .section-title h2,
-        .reviews-container .section-title p {
-            color: white;
-        }
-
-        .reviews-container .section-title h2:after {
-            background: white;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .review-card {
-            background: rgba(255,255,255,0.1);
-            padding: 35px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s;
-        }
-
-        .review-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.2);
-        }
-
-        .stars {
-            color: gold;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .review-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .reviewer {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .reviewer img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 3px solid white;
-            background: #ddd;
-        }
-
-        /* Team Section - san foto moun */
-        .team {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .team-member {
-            text-align: center;
-            padding: 40px 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-bottom: 4px solid transparent;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(46, 94, 139, 0.2);
-            border-bottom-color: var(--secondary-color);
-        }
-
-        .member-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .team-member h3 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .member-role {
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .team-member p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            padding: 0 20px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-section h3:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--secondary-color);
-        }
-
-        .footer-section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
-        }
-
-        .footer-section i {
-            margin-right: 10px;
-            color: var(--secondary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            margin-bottom: 0;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            position: relative;
-            background: white;
-            max-width: 500px;
-            margin: 100px auto;
-            padding: 40px;
-            border-radius: 20px;
-            animation: slideDown 0.3s;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 20px;
-            font-size: 35px;
-            cursor: pointer;
-            color: #999;
-            transition: color 0.3s;
-        }
-
-        .close:hover {
-            color: var(--primary-color);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -979,22 +521,6 @@
                 font-size: 1.5rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
             .whatsapp-btn {
                 margin: 10px auto;
             }
@@ -1006,10 +532,8 @@
     <header>
         <div class="header-container">
             <div class="logo-area">
-                <div class="logo">
-                    <div class="fleudy">FLEUDY</div>
-                    <div class="multiservices">MULTISERVICES</div>
-                </div>
+                <!-- Mete logo ou isit -->
+                <div class="logo"></div>
                 <div class="company-name">
                     <h1>FLEUDY MULTISERVICES</h1>
                     <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
@@ -1023,15 +547,11 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:infofleudymultiservices.com">infofleudymultiservices.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:contactfleudymultiservices.com">contactfleudymultiservices.com</a>
+                    <a href="mailto:infofleudymultiservices.com">info@fleudymultiservices.com</a>
                 </div>
             </div>
 
-            <!-- WhatsApp bouton adwat nan mitan -->
+            <!-- WhatsApp bouton byen vizib -->
             <a href="https://wa.me/16199208096" class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 WhatsApp Us
@@ -1054,17 +574,13 @@
         <div class="nav-container">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#team">Our Team</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section ak bèl videyo San Diego -->
+    <!-- Hero Section ak imaj San Diego -->
     <section id="home" class="hero">
-        <!-- Imaj San Diego (ou ka ranplase ak yon videyo si ou genyen) -->
-        <img src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?w=1920" alt="San Diego Skyline" class="hero-video">
+        <img src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?w=1920" alt="San Diego" class="hero-image">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>FLEUDY MULTISERVICES</h1>
@@ -1077,7 +593,7 @@
         </div>
     </section>
 
-    <!-- AI Chatbot gratuit -->
+    <!-- AI Chatbot ki ka reponn sou sèvis yo -->
     <div class="ai-chatbot">
         <div class="chatbot-btn" onclick="toggleChatbot()">
             <i class="fas fa-robot"></i>
@@ -1090,12 +606,23 @@
             <div class="chatbot-messages" id="chatbotMessages">
                 <div class="message">
                     <div class="bot-message">
-                        Hello! I'm Fleudy's AI assistant. How can I help you today?
+                        👋 Hi! I'm Fleudy's AI assistant. I can help you with information about our services:
+                        <br><br>
+                        • Home Cleaning<br>
+                        • Immigration Documents<br>
+                        • Document Translation<br>
+                        • General Maintenance<br>
+                        • Basic Plumbing<br>
+                        • Basic Electrical<br>
+                        • Tax Preparation<br>
+                        • Handyman Services
+                        <br><br>
+                        What would you like to know?
                     </div>
                 </div>
             </div>
             <div class="chatbot-input">
-                <input type="text" id="userInput" placeholder="Type your message...">
+                <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="if(event.key === 'Enter') sendMessage()">
                 <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
@@ -1109,7 +636,7 @@
         </div>
 
         <div class="services-grid">
-            <!-- Netwayaj Lakay / Home Cleaning -->
+            <!-- Home Cleaning -->
             <div class="service-card">
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500" alt="Home Cleaning">
@@ -1118,26 +645,26 @@
                     <h3>Home Cleaning</h3>
                     <p>Professional and detailed cleaning for your home. We use modern equipment and quality products.</p>
                     <button class="service-btn" onclick="openServiceModal('Home Cleaning')">
-                        <i class="fas fa-camera"></i> Send Photos for Estimate
+                        <i class="fas fa-camera"></i> Send Photos
                     </button>
                 </div>
             </div>
 
-            <!-- Ede Ranpli Dokiman Immigration / Immigration Documents -->
+            <!-- Immigration Documents -->
             <div class="service-card">
                 <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500" alt="Immigration Documents">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500" alt="Immigration Documents">
                 </div>
                 <div class="service-content">
                     <h3>Immigration Documents</h3>
                     <p>Help with filling out all immigration forms and documents correctly and quickly.</p>
                     <button class="service-btn" onclick="openServiceModal('Immigration Documents')">
-                        <i class="fas fa-file-pdf"></i> Send Your Documents
+                        <i class="fas fa-file-pdf"></i> Send Documents
                     </button>
                 </div>
             </div>
 
-            <!-- Traduction Dokiman / Document Translation -->
+            <!-- Document Translation -->
             <div class="service-card">
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=500" alt="Document Translation">
@@ -1146,12 +673,12 @@
                     <h3>Document Translation</h3>
                     <p>Professional translation services in multiple languages. Certified translation available.</p>
                     <button class="service-btn" onclick="openServiceModal('Document Translation')">
-                        <i class="fas fa-language"></i> Send Documents for Translation
+                        <i class="fas fa-language"></i> Send Documents
                     </button>
                 </div>
             </div>
 
-            <!-- Maitenens Jeneral / General Maintenance -->
+            <!-- General Maintenance -->
             <div class="service-card">
                 <div class="service-image">
                     <img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=500" alt="General Maintenance">
@@ -1160,24 +687,223 @@
                     <h3>General Maintenance</h3>
                     <p>Regular maintenance and repairs for your home. We handle all technical issues.</p>
                     <button class="service-btn" onclick="openServiceModal('General Maintenance')">
-                        <i class="fas fa-tools"></i> Send Photos of the Issue
+                        <i class="fas fa-tools"></i> Send Photos
                     </button>
                 </div>
             </div>
 
-            <!-- Plonbi de Baz / Basic Plumbing -->
+            <!-- Basic Plumbing - ak nouvo foto -->
             <div class="service-card">
                 <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500" alt="Plumbing">
+                    <img src="https://images.unsplash.com/photo-1607472586893-544325c0bff3?w=500" alt="Plumbing">
                 </div>
                 <div class="service-content">
                     <h3>Basic Plumbing</h3>
                     <p>Pipe repairs, faucets, toilets, and other water-related issues. Fast and efficient.</p>
                     <button class="service-btn" onclick="openServiceModal('Plumbing')">
-                        <i class="fas fa-wrench"></i> Send Photos of the Issue
+                        <i class="fas fa-wrench"></i> Send Photos
                     </button>
                 </div>
             </div>
 
-            <!-- Handyman / Complete Services -->
-            <div class
+            <!-- Basic Electrical - NOUVO SÈVIS -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500" alt="Electrical">
+                </div>
+                <div class="service-content">
+                    <h3>Basic Electrical</h3>
+                    <p>Electrical repairs, outlet installation, light fixtures, and basic electrical work.</p>
+                    <button class="service-btn" onclick="openServiceModal('Electrical')">
+                        <i class="fas fa-bolt"></i> Send Photos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tax Preparation - NOUVO SÈVIS -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=500" alt="Tax Preparation">
+                </div>
+                <div class="service-content">
+                    <h3>Tax Preparation</h3>
+                    <p>Professional tax preparation services for individuals and small businesses.</p>
+                    <button class="service-btn" onclick="openServiceModal('Tax Preparation')">
+                        <i class="fas fa-calculator"></i> Send Documents
+                    </button>
+                </div>
+            </div>
+
+            <!-- Handyman Services -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500" alt="Handyman">
+                </div>
+                <div class="service-content">
+                    <h3>Handyman Services</h3>
+                    <p>All-in-one service including electrical, plumbing, maintenance, and repairs.</p>
+                    <button class="service-btn" onclick="openServiceModal('Handyman')">
+                        <i class="fas fa-toolbox"></i> Send Photos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FLEUDY MULTISERVICES</h3>
+                <p><i class="fas fa-map-marker-alt"></i> San Diego, California</p>
+                <p><i class="fas fa-phone"></i> +1 (619) 920-8096</p>
+                <p><i class="fas fa-envelope"></i> info@fleudymultiservices.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 FLEUDY MULTISERVICES. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal pou voye foto -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Send Photos</h3>
+            <div style="text-align: center; padding: 20px;">
+                <i class="fas fa-upload" style="font-size: 50px; color: var(--primary-color);"></i>
+                <p style="margin: 20px 0;">Click to select photos for your service request</p>
+                <input type="file" id="serviceFile" multiple accept="image/*" style="display: none;">
+                <button class="service-btn" onclick="document.getElementById('serviceFile').click()" style="width: auto;">
+                    Choose Photos
+                </button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                    We will contact you shortly with an estimate
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonksyon pou chatbot AI
+        function toggleChatbot() {
+            const window = document.getElementById('chatbotWindow');
+            window.style.display = window.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Fonksyon pou voye mesaj nan chatbot
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Ajoute mesaj itilizatè a
+            addMessage(message, 'user');
+            
+            // Vide input la
+            input.value = '';
+            
+            // AI repons
+            setTimeout(() => {
+                const response = getAIResponse(message);
+                addMessage(response, 'bot');
+            }, 1000);
+        }
+
+        // AI ki konnen tout sèvis yo
+        function getAIResponse(question) {
+            question = question.toLowerCase();
+            
+            // Repons sou chak sèvis
+            if (question.includes('clean') || question.includes('netwayaj')) {
+                return "🧹 Our Home Cleaning service includes: deep cleaning, kitchen cleaning, bathroom cleaning, and more. We use eco-friendly products. Would you like to schedule a cleaning?";
+            }
+            else if (question.includes('immigration') || question.includes('dokiman')) {
+                return "📄 We help with all immigration documents: applications, forms, renewals, and more. Our team is experienced with USCIS requirements. What document do you need help with?";
+            }
+            else if (question.includes('translat') || question.includes('tradiksyon')) {
+                return "🌐 We offer professional document translation in multiple languages: English, Spanish, French, Haitian Creole, and Portuguese. Certified translations available. What language pair do you need?";
+            }
+            else if (question.includes('maintenance') || question.includes('maitenens')) {
+                return "🔧 Our General Maintenance service covers: appliance repair, furniture assembly, drywall repair, painting, and more. Send us photos of what needs repair!";
+            }
+            else if (question.includes('plumb') || question.includes('plonbi')) {
+                return "🚰 Basic Plumbing: We fix leaks, unclog drains, repair faucets, toilets, and more. Fast response and quality work. What's the plumbing issue?";
+            }
+            else if (question.includes('electrical') || question.includes('elektrisite')) {
+                return "⚡ Basic Electrical: Outlet installation, light fixture repair, circuit troubleshooting, and more. Licensed and experienced. What electrical work do you need?";
+            }
+            else if (question.includes('tax') || question.includes('taks')) {
+                return "💰 Tax Preparation: Individual and business tax returns, tax planning, and consulting. We help maximize your refund. Would you like to schedule a consultation?";
+            }
+            else if (question.includes('handyman') || question.includes('brikolaj')) {
+                return "🛠️ Handyman Services: All-in-one solution for electrical, plumbing, maintenance, and repairs. One call fixes it all! What do you need help with?";
+            }
+            else if (question.includes('price') || question.includes('pri') || question.includes('cost') || question.includes('koute')) {
+                return "💵 Prices vary depending on the service and scope of work. Send us photos of what you need, and we'll give you a free estimate within 24 hours!";
+            }
+            else if (question.includes('hour') || question.includes('lè') || question.includes('schedule')) {
+                return "🕐 We're available Monday-Friday: 8AM-6PM, Saturday: 9AM-2PM. Emergency services available. When would you like to schedule?";
+            }
+            else if (question.includes('san diego') || question.includes('lokal')) {
+                return "📍 We serve all of San Diego County: Downtown, La Jolla, Chula Vista, El Cajon, Escondido, and more. Where are you located?";
+            }
+            else {
+                return "🤖 I can help you with information about all our services: Home Cleaning, Immigration Documents, Translation, Maintenance, Plumbing, Electrical, Tax Preparation, and Handyman Services. What would you like to know more about?";
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messages = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            const messageBubble = document.createElement('div');
+            messageBubble.className = sender === 'bot' ? 'bot-message' : 'user-message';
+            messageBubble.textContent = text;
+            
+            messageDiv.appendChild(messageBubble);
+            messages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Fonksyon pou ouvri modal chak sèvis
+        function openServiceModal(serviceName) {
+            document.getElementById('modalTitle').innerText = 'Send Photos for ' + serviceName;
+            document.getElementById('serviceModal').style.display = 'block';
+        }
+
+        // Fèmen modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('serviceModal')) {
+                document.getElementById('serviceModal').style.display = 'none';
+            }
+        }
+
+        document.getElementById('serviceFile').addEventListener('change', function(e) {
+            alert('Thank you! Your photos have been received. We will contact you shortly with an estimate.');
+            document.getElementById('serviceModal').style.display = 'none';
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -56,8 +56,8 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: white;
             border-radius: 10px;
             display: flex;
@@ -69,23 +69,25 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             line-height: 1.2;
             text-align: center;
-            padding: 5px;
+            padding: 10px;
         }
 
         .logo .fleudy {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--primary-color);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
         }
 
         .logo .multiservices {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--secondary-color);
-            border-top: 1px solid #ddd;
-            padding-top: 3px;
-            margin-top: 3px;
+            border-top: 2px solid var(--secondary-color);
+            padding-top: 5px;
+            margin-top: 5px;
+            letter-spacing: 1px;
         }
 
         .company-name h1 {
@@ -98,7 +100,6 @@
         .company-name p {
             font-size: 1rem;
             opacity: 0.9;
-            font-style: italic;
         }
 
         .company-name p i {
@@ -108,18 +109,18 @@
 
         .contact-info {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .contact-item i {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--secondary-color);
         }
 
@@ -127,12 +128,14 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         .contact-item a:hover {
             color: var(--secondary-color);
         }
 
+        /* WhatsApp bouton adwat nan mitan */
         .whatsapp-btn {
             background-color: var(--accent-color);
             color: white;
@@ -143,12 +146,16 @@
             align-items: center;
             gap: 10px;
             font-weight: bold;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            right: 0;
+            margin: 0 10px;
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.05);
             background-color: #128C7E;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Language Selector */
@@ -205,24 +212,68 @@
             color: white;
         }
 
-        /* Hero Section */
+        /* Hero Section ak bèl videyo/imaj San Diego */
         .hero {
-            background: linear-gradient(rgba(46, 94, 139, 0.9), rgba(76, 175, 80, 0.9)), url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1920') center/cover;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             text-align: center;
-            padding: 120px 20px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(46, 94, 139, 0.7), rgba(76, 175, 80, 0.7));
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s;
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             font-weight: 300;
+            animation: fadeInUp 1s 0.3s both;
+        }
+
+        .hero .location {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s 0.6s both;
+        }
+
+        .hero .location i {
+            color: var(--secondary-color);
+            margin-right: 10px;
         }
 
         .hero p {
@@ -230,16 +281,29 @@
             max-width: 800px;
             margin: 0 auto 30px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s 0.9s both;
         }
 
-        .hero .location {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .hero .location i {
-            color: var(--secondary-color);
-            margin-right: 10px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-btn {
@@ -252,6 +316,7 @@
             font-size: 1.2rem;
             transition: all 0.3s;
             display: inline-block;
+            animation: fadeInUp 1s 1.2s both;
         }
 
         .hero-btn:hover {
@@ -387,6 +452,118 @@
 
         .service-btn i {
             margin-right: 8px;
+        }
+
+        /* AI Chatbot gratuit */
+        .ai-chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+            display: none;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .bot-message {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px 15px 15px 0;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px 15px 0 15px;
+            max-width: 80%;
+            margin-left: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         /* Upload Section */
@@ -574,18 +751,14 @@
         }
 
         .reviewer img {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             border: 3px solid white;
+            background: #ddd;
         }
 
-        .reviewer h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        /* Team Section */
+        /* Team Section - san foto moun */
         .team {
             max-width: 1200px;
             margin: 80px auto;
@@ -615,20 +788,18 @@
             border-bottom-color: var(--secondary-color);
         }
 
-        .member-photo {
-            width: 180px;
-            height: 180px;
+        .member-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 50%;
             margin: 0 auto 25px;
-            overflow: hidden;
-            border: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .team-member h3 {
@@ -648,21 +819,6 @@
             color: #666;
             line-height: 1.6;
             font-size: 1.1rem;
-        }
-
-        /* San Diego Badge */
-        .sd-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 50px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        .sd-badge i {
-            color: var(--secondary-color);
-            margin-right: 5px;
         }
 
         /* Footer */
@@ -838,6 +994,10 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            .whatsapp-btn {
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
@@ -871,6 +1031,7 @@
                 </div>
             </div>
 
+            <!-- WhatsApp bouton adwat nan mitan -->
             <a href="https://wa.me/16199208096" class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 WhatsApp Us
@@ -900,16 +1061,45 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section ak bèl videyo San Diego -->
     <section id="home" class="hero">
-        <h1>FLEUDY MULTISERVICES</h1>
-        <h2>Your Trusted Partner in San Diego</h2>
-        <div class="location">
-            <i class="fas fa-map-marker-alt"></i> Serving All San Diego County
+        <!-- Imaj San Diego (ou ka ranplase ak yon videyo si ou genyen) -->
+        <img src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?w=1920" alt="San Diego Skyline" class="hero-video">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>FLEUDY MULTISERVICES</h1>
+            <h2>Your Trusted Partner in San Diego</h2>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i> Serving All San Diego County
+            </div>
+            <p>Professional, Fast, and Quality Services for Your Home and Business Needs</p>
+            <a href="#services" class="hero-btn">Explore Our Services</a>
         </div>
-        <p>Professional, Fast, and Quality Services for Your Home and Business Needs</p>
-        <a href="#services" class="hero-btn">Explore Our Services</a>
     </section>
+
+    <!-- AI Chatbot gratuit -->
+    <div class="ai-chatbot">
+        <div class="chatbot-btn" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3><i class="fas fa-robot"></i> Fleudy AI Assistant</h3>
+                <span class="close-chat" onclick="toggleChatbot()">×</span>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message">
+                    <div class="bot-message">
+                        Hello! I'm Fleudy's AI assistant. How can I help you today?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
 
     <!-- Seksyon Sèvis yo -->
     <section id="services" class="services">
@@ -990,132 +1180,4 @@
             </div>
 
             <!-- Handyman / Complete Services -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500" alt="Handyman Services">
-                </div>
-                <div class="service-content">
-                    <h3>Handyman Complete Services</h3>
-                    <p>Electrical, Plumbing, Maintenance - A complete team for all your home needs.</p>
-                    <button class="service-btn" onclick="openServiceModal('Handyman Services')">
-                        <i class="fas fa-bolt"></i> Send Photos of the Work
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seksyon Upload Foto -->
-    <section class="upload-section">
-        <div class="upload-container">
-            <h2>Share Your Project Photos</h2>
-            <p>Send us photos of your recent projects or the work you need done</p>
-            
-            <div class="upload-area">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h3>Click here to upload photos</h3>
-                <p>You can upload multiple photos at once (JPEG, PNG)</p>
-                <input type="file" id="fileUpload" multiple accept="image/*" style="display: none;">
-                <button class="upload-btn" onclick="document.getElementById('fileUpload').click()">
-                    <i class="fas fa-camera"></i> Choose Photos
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeri Travay -->
-    <section id="gallery" class="gallery">
-        <div class="section-title">
-            <h2>Our Recent Work</h2>
-            <p>See some examples of our completed projects in San Diego</p>
-        </div>
-
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Galeri ap charje isit ak JavaScript -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500" alt="Complete Cleaning">
-                <div class="gallery-overlay">
-                    <h4>Complete Home Cleaning</h4>
-                    <p>San Diego - January 2024</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500" alt="Electrical Repair">
-                <div class="gallery-overlay">
-                    <h4>Electrical Repair</h4>
-                    <p>San Diego - March 2024</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="Bathroom Plumbing">
-                <div class="gallery-overlay">
-                    <h4>Bathroom Plumbing</h4>
-                    <p>San Diego - February 2024</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=500" alt="Home Renovation">
-                <div class="gallery-overlay">
-                    <h4>Home Renovation</h4>
-                    <p>San Diego - April 2024</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seksyon Revi 5 Etwal -->
-    <section id="reviews" class="reviews">
-        <div class="reviews-container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>5-Star Reviews from Satisfied Customers in San Diego</p>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"I needed help with my immigration documents. The team was very professional and helped me fill everything out correctly. I recommend them without hesitation!"</p>
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Maria G.">
-                        <div>
-                            <h4>Maria Gonzalez</h4>
-                            <small>San Diego</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Jean Fleudy and his team fixed all my electrical issues quickly. Fast, efficient, and reasonable prices. Very satisfied!"</p>
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="David S.">
-                        <div>
-                            <h4>David Smith</h4>
-                            <small>San Diego</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"The cleaning service was perfect! They arrived on time, worked well, and left my home spotless. Will definitely call them again."</p>
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt
+            <div class
